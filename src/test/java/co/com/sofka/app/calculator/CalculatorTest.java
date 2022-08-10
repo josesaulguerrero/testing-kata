@@ -1,6 +1,7 @@
 package co.com.sofka.app.calculator;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -58,5 +59,30 @@ class CalculatorTest {
 
         // Assert
         assertEquals(expectedResult, actualResult);
+    }
+
+    @CsvSource({
+            "45, 1, 45",
+            "1, 2, 0.5",
+            "100, 4, 25",
+            "88, 11, 8"
+    })
+    @ParameterizedTest(name = "{0} over {1} should return {2}.")
+    void divide(Long dividend, Long divisor, Long expectedResult) {
+        // Act
+        Long actualResult = calculator.divide(dividend, divisor);
+
+        // Assert
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    void divide_with_error() {
+        // Arrange
+        Long dividend = 23L;
+        Long divisor = 0L;
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> calculator.divide(dividend, divisor));
     }
 }

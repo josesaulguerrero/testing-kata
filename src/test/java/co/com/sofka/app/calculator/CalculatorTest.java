@@ -43,4 +43,20 @@ class CalculatorTest {
         // Assert
         assertEquals(expectedResult, actualResult);
     }
+
+
+    @CsvSource({
+            "23, 34, 782",
+            "1, 2, 2",
+            "100, 0, 0",
+            "11, 8, 88"
+    })
+    @ParameterizedTest(name = "{0} times {1} should return {2}.")
+    void multiply(Long a, Long b, Long expectedResult) {
+        // Act
+        Long actualResult = calculator.multiply(a, b);
+
+        // Assert
+        assertEquals(expectedResult, actualResult);
+    }
 }

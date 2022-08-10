@@ -1,6 +1,7 @@
 package co.com.sofka.app.calculator;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -63,7 +64,7 @@ class CalculatorTest {
 
     @CsvSource({
             "45, 1, 45",
-            "1, 2, 0.5",
+            "0, 2, 0",
             "100, 4, 25",
             "88, 11, 8"
     })
@@ -77,6 +78,7 @@ class CalculatorTest {
     }
 
     @Test
+    @DisplayName("Any number divided by zero throws an IllegalArgumentException.")
     void divide_with_error() {
         // Arrange
         Long dividend = 23L;

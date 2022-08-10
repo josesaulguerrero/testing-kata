@@ -19,6 +19,11 @@ public class Calculator {
         return a * b;
     }
 
-    //TODO complete all arithmetical operations.
-    //NOTE: take a/0 into account.
+    public Long divide(Long dividend, Long divisor) {
+        if (divisor == 0) {
+            throw new IllegalArgumentException("Division by zero is not allowed.");
+        }
+        log.info("Dividing {} by {}", dividend, divisor);
+        return dividend / divisor;
+    }
 }

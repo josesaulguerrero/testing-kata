@@ -14,6 +14,11 @@ public class Calculator {
         return minuend - subtrahend;
     }
 
+    public Long multiply(Long a, Long b) {
+        log.info("Multiplying {} by {}", a, b);
+        return a * b;
+    }
+
     //TODO complete all arithmetical operations.
     //NOTE: take a/0 into account.
 }
